@@ -28,13 +28,13 @@ def make_word_sentiment_dictionary(file_name):
         word_sentiment_dict[key]['average score'] = total / count
     return word_sentiment_dict
 
-def predict_sentiment_score(reivew, word_sentiment_dict):
+def predict_sentiment_score(review, word_sentiment_dict):
     """
     Given a movie review as a string and a word sentiment dictionary,
     return an estimated sentiment score for the review.
     """
     total_score, count = 0, 0
-    for word in reivew.split():
+    for word in review.split():
         word = word.lower()
         total_score += (2 if (word not in word_sentiment_dict) else
                         word_sentiment_dict[word]['average score'])
